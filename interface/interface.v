@@ -1,6 +1,16 @@
+
+interface Speaker {
+	speak() string
+}
+
+fn perform(s Speaker) { 
+	println(s.speak())
+}
+
 struct Dog {
 	a int
 	b int
+	s Speaker
 }
 struct Cat {}
 
@@ -10,14 +20,6 @@ fn (d Dog) speak() string {
 
 fn (c Cat) speak() string { 
 	return 'meow' 
-} 
-
-interface Speaker {
-	speak() string
-}
-
-fn perform(s Speaker) { 
-	println(s.speak())
 } 
 
 fn main() {

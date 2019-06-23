@@ -71,9 +71,9 @@ typedef struct smap smap;
 typedef array array_Entry2;
 typedef struct Option Option;
 typedef struct StringBuilder StringBuilder;
+typedef struct Speaker Speaker;
 typedef struct Dog Dog;
 typedef struct Cat Cat;
-typedef struct Speaker Speaker;
 struct array {
 void* data;
 int len;
@@ -115,13 +115,14 @@ struct StringBuilder {
 array_byte buf;
 int len;
 }; 
+struct Speaker {
+}; 
 struct Dog {
 int a;
 int b;
+Speaker s;
 }; 
 struct Cat {
-}; 
-struct Speaker {
 }; 
 
 string _STR(const char*, ...);
@@ -275,9 +276,9 @@ void StringBuilder_write(StringBuilder* b, string s);
 void StringBuilder_writeln(StringBuilder* b, string s);
 string StringBuilder_str(StringBuilder b);
 void StringBuilder_cut(StringBuilder b, int n);
+void perform( void* s, string (*Speaker_speak)(void*) );
 string Dog_speak(Dog d);
 string Cat_speak(Cat c);
-void perform( void* s, string (*Speaker_speak)(void*) );
 
 
 
@@ -3725,6 +3726,12 @@ _PUSH(& b ->buf , ( '\n' ), tmp1, byte) ;
  
  
  }
+ void perform( void* s, string (*Speaker_speak)(void*) ) {
+ 
+ println ( Speaker_speak( s ) ) ;
+ 
+ 
+ }
  string Dog_speak(Dog d) {
 
  
@@ -3739,16 +3746,10 @@ _PUSH(& b ->buf , ( '\n' ), tmp1, byte) ;
  
  
  }
- void perform( void* s, string (*Speaker_speak)(void*) ) {
- 
- println ( Speaker_speak( s ) ) ;
- 
- 
- }
  int main(int argc, char** argv) {
  init_consts();
  
-Dog dog= (Dog){ .a = 0 , .b = 0 } ;
+Dog dog= (Dog){ .a = 0 , .b = 0 , } ;
  
 Cat cat= (Cat){ } ;
  
