@@ -1,0 +1,1 @@
+- $HOME/.vlang0.0.12/hello.c
