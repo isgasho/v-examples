@@ -116,6 +116,8 @@ array_byte buf;
 int len;
 }; 
 struct Dog {
+int a;
+int b;
 }; 
 struct Cat {
 }; 
@@ -3746,7 +3748,7 @@ _PUSH(& b ->buf , ( '\n' ), tmp1, byte) ;
  int main(int argc, char** argv) {
  init_consts();
  
-Dog dog= (Dog){ } ;
+Dog dog= (Dog){ .a = 0 , .b = 0 } ;
  
 Cat cat= (Cat){ } ;
  

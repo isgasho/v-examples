@@ -1,4 +1,7 @@
-struct Dog {}
+struct Dog {
+	a int
+	b int
+}
 struct Cat {}
 
 fn (d Dog) speak() string { 
